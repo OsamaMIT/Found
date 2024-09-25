@@ -2,7 +2,6 @@ import streamlit as st
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import bcrypt
-from cryptography.fernet import Fernet
 
 if 'username' not in st.session_state:
     st.session_state.username = ''
