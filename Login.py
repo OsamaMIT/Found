@@ -20,13 +20,6 @@ except Exception as e:
 db = client['Found']
 
 # ------------------- Database Managment ------------------- #
-def generate_key():
-    return Fernet.generate_key()
-
-def encrypt_data(data, key):
-    f = Fernet(key)
-    return f.encrypt(data.encode('utf-8'))
-
 # Function to retrieve friends on the Home page
 def get_friends(user):
     doc = db['users'].find_one({'username': user})
@@ -86,19 +79,18 @@ def create_account():
 
     st.session_state['switch_page'] = True
 
-body = st.container()
-with body:
-    st.title('Account Login')
 
-    username_e = st.text_input('Username')
-    pin_e = st.text_input('Pin', type='password')
+st.title('Account Login')
 
-    col1,col2 = st.columns(2)
-    with col1:
-        st.button('Log In', on_click=check)
-    with col2:
-        st.button('Sign Up', on_click=create_account)
+username_e = st.text_input('Username')
+pin_e = str(st.text_input('Pin', type='password'))
 
+col1,col2 = st.columns(2)
+with col1:
+    st.button('Log In', on_click=check)
+with col2:
+    st.button('Sign Up', on_click=create_account)
+    
 
 if st.session_state.get('switch_page', False):
     st.session_state.username = username_e # Stores the user so that it doesn't reset when the page changes
