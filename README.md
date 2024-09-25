@@ -5,4 +5,7 @@ A web app ***prototype*** for a platform that facilitates finding others that yo
 It is currently still in development.
 
 ## Stack
-The entire web app is created with Python, so Streamlit was used for the 'frontend' and MongoDB for the database. 
+The entire web app is created with Python, so Streamlit was used for the 'frontend' and hosting, while MongoDB was used for the database. 
+
+## Inspiration
+Inspired by all the times I found students looking for someone free or around in my first month of university.
